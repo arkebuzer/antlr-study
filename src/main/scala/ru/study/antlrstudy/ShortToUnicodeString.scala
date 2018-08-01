@@ -17,6 +17,6 @@ class ShortToUnicodeString extends ArrayInitBaseListener {
   override def enterValue(ctx: ArrayInitParser.ValueContext): Unit = {
     // Assumes no nested array initializers
     val value = ctx.INT().getText.toShort
-    System.out.printf("\\u%04x", value)
+    println(f"\\u$value%04x")
   }
 }
