@@ -5,7 +5,7 @@ import scala.collection.mutable.{Map => MutaMap}
 
 class EvalVisitor extends LabeledExprBaseVisitor[Int] {
   /** "memory" for our calculator variable/value pairs go here */
-  val memory: MutaMap[String, Int] = MutaMap()
+  private val memory: MutaMap[String, Int] = MutaMap()
 
   /** ID '=' expr NEWLINE */
   override def visitAssign(ctx: LabeledExprParser.AssignContext): Int = {
