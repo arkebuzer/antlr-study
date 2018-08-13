@@ -5,6 +5,7 @@ import CommonLExerRules;
 prog: stat+ ;
 stat: expr NEWLINE # printExpr
 | ID '=' expr NEWLINE # assign
+| 'clear' # clear
 | NEWLINE # blank
 ;
 expr: expr op=('*'|'/') expr # MulDiv
@@ -18,3 +19,4 @@ MUL : '*' ; // assigns token name to '*' used above in grammar
 DIV : '/' ;
 ADD : '+' ;
 SUB : '-' ;
+CLEAR : 'clear';

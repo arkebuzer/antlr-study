@@ -63,4 +63,10 @@ class EvalVisitor extends LabeledExprBaseVisitor[Int] {
   override def visitParens(ctx: LabeledExprParser.ParensContext): Int = {
     visit(ctx.expr()) // return child expr's value
   }
+
+  /** clear */
+  override def visitClear(ctx: LabeledExprParser.ClearContext) : Int = {
+    memory.clear()
+    0 // return dummy value
+  }
 }
