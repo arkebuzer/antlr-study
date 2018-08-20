@@ -1,26 +1,11 @@
 package ru.study.antlrstudy
 
-import java.io.FileInputStream
-
 import org.antlr.v4.runtime.tree.ParseTreeWalker
 import org.antlr.v4.runtime.{CharStreams, CommonTokenStream}
 import ru.study.antlrstudy.parsers.java.{JavaLexer, JavaParser}
 
 object ExtractInterfaceTool extends App {
-
-  val inputFile: Option[String] =
-    if (args.length > 0) {
-      Some(args(0))
-    } else {
-      None
-    }
-
-  val is =
-    if (inputFile.isDefined) {
-      new FileInputStream(inputFile.get)
-    } else {
-      System.in
-    }
+  val is = InputHelper.getInputStream(args)
 
   val input = CharStreams.fromStream(is)
 
